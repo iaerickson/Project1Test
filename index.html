@@ -115,6 +115,7 @@
        * appropriate message is printed.
        */
       function listUpcomingEvents() {
+        console.log(gapi.client.calendar.events);
         gapi.client.calendar.events
           .list({
             calendarId: "primary",
@@ -127,7 +128,7 @@
           .then(function(response) {
             var events = response.result.items;
             appendPre("Upcoming events:");
-
+            console.log(events);
             if (events.length > 0) {
               for (i = 0; i < events.length; i++) {
                 var event = events[i];
